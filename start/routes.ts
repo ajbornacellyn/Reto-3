@@ -29,6 +29,7 @@ Route.group(()=>{
   Route.post('/register', "AuthController.register");
   Route.post("/login", "AuthController.login");
 
+
   Route.group(() =>{
     //rutas de libros
     Route.get("/books", "BooksController.index");
@@ -53,7 +54,6 @@ Route.group(()=>{
     Route.get('/profiles/:id', "ProfilesController.getProfile");
     Route.post('/profiles', "ProfilesController.createProfile");
     Route.delete('/profiles/delete/:id', "ProfilesController.deleteProfile");
-    Route.put('/profiles/update/:id', "ProfilesController.updateProfile");
   }).middleware(["auth"]);
 
 }).prefix("api");

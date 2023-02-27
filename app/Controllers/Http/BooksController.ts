@@ -147,7 +147,7 @@ export default class BooksController {
   }
 
   public async hasPermisse(auth: any) {
-    const perfil = auth.use("api").user?.perfil;
+    const perfil = auth.use("api").user?.perfil_usuario;
     if (perfil == 1) {
       return false;
     } else {

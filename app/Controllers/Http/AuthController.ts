@@ -36,7 +36,7 @@ export default class AuthController {
     user.name = name;
     user.email = email;
     user.password = password;
-    user.perfil = profile;
+    user.perfil_usuario = profile;
     user.identificacionTipo = identificacionTipo;
     user.identificacionNo = identificacionNo;
     user.direccion = direccion;
@@ -77,7 +77,7 @@ export default class AuthController {
     }
   }
   public async updatetUser({ auth, request, response }: HttpContextContract) {
-    const perfil = auth.use("api").user?.perfil;
+    const perfil = auth.use("api").user?.perfil_usuario;
     if (perfil === 3) {
       return { msg: "No tiene permisos para ver los usuarios" };
     } else {
@@ -88,7 +88,7 @@ export default class AuthController {
         userOld.name = userNew.name;
         userOld.email = userNew.email;
         userOld.password = userNew.password;
-        userOld.perfil = userNew.perfil;
+        userOld.perfil_usuario = userNew.perfil;
         userOld.identificacionTipo = userNew.identificacionTipo;
         userOld.identificacionNo = userNew.identificacionNo;
         userOld.direccion = userNew.direccion;
@@ -137,7 +137,9 @@ export default class AuthController {
   }
 
   public async hasPermisse(auth: any) {
-    const perfil = auth.use("api").user?.perfil;
+    const perfil = auth.use("api").user?.perfil_usuario;
+    console.log("perfiiiiiiiiiiil");
+    console.log(perfil);
     if (perfil != 3) {
       return false;
     } else {

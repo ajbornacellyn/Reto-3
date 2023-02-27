@@ -50,7 +50,7 @@ export default class ProfilesController {
       }
     }
   }
-  
+
   public async updateProfile({request, auth}: HttpContextContract){
     if(await this.hasPermisse(auth)){
       const id = request.param("id");
@@ -91,7 +91,7 @@ export default class ProfilesController {
   }
 
   public async hasPermisse(auth: any) {
-    const perfil = auth.use("api").user?.perfil;
+    const perfil = auth.use("api").user?.perfil_usuario;
     if (perfil != 3) {
       return false;
     } else {

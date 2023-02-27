@@ -23,7 +23,7 @@ export default class User extends BaseModel {
   public password: string
 
   @column()
-  public perfil: number
+  public perfil_usuario: number
 
   @column()
   public identificacionTipo: string
@@ -58,11 +58,5 @@ export default class User extends BaseModel {
       user.password = await Hash.make(user.password)
     }
   }
-
-  @hasOne(() => Profile, {
-    localkey: 'id',
-    foreignkey: 'idUsuario'
-  })
-  public profile: HasOne<typeof Profile>
 
 }

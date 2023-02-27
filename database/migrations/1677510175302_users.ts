@@ -10,7 +10,7 @@ export default class UsersSchema extends BaseSchema {
       table.string('email', 255).notNullable()
       table.string('password', 180).notNullable()
       table.integer('perfil_usuario').unsigned().unique().index("perfil_usuario")
-      table.foreign('perfil_usuario').references('perfils.id').onDelete('CASCADE')
+      table.foreign('perfil_usuario').references('profiles.id').onDelete('CASCADE')
       table.string('identificacion_tipo').notNullable()
       table.integer('identificacion_no').notNullable()
       table.string('direccion', 180).notNullable()
